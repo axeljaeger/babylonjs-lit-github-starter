@@ -23,7 +23,6 @@ This starter demonstrates:
 - FPS counter
 - Sphere color changing
 - Camera reset functionality
-- Animation toggle
 - Proper TypeScript typing throughout
 - Shadow DOM encapsulation for components
 
