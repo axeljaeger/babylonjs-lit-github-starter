@@ -12,11 +12,9 @@ export class UiPanel extends LitElement {
 	@property({ type: Object }) sphere?: Mesh;
 	@property({ type: Object }) camera?: FreeCamera;
 
-	@state() private _isAnimating = false;
 	@state() private _fps = 0;
 
 	private _fpsInterval?: number;
-	private _animationCallback = () => this._animateSphere();
 
 	// No shadow DOM - use global styles
 	createRenderRoot() {
@@ -31,9 +29,6 @@ export class UiPanel extends LitElement {
 	disconnectedCallback() {
 		super.disconnectedCallback();
 		this._stopFpsCounter();
-		if (this._isAnimating) {
-			this.scene?.unregisterBeforeRender(this._animationCallback);
-		}
 	}
 
 	render() {
@@ -68,15 +63,6 @@ export class UiPanel extends LitElement {
 						<button @click=${this._resetCamera}>Reset Camera</button>
 					</fieldset>
 				</section>
-
-				<section class="control-group">
-					<fieldset>
-						<legend class="control-label">Animation</legend>
-						<button @click=${this._toggleAnimation}>
-							${this._isAnimating ? 'Stop Animation' : 'Start Animation'}
-						</button>
-					</fieldset>
-				</section>
 			</aside>
 		`;
 	}
@@ -96,22 +82,6 @@ export class UiPanel extends LitElement {
 		if (this.camera) {
 			this.camera.position = new Vector3(0, 5, -10);
 			this.camera.setTarget(Vector3.Zero());
-		}
-	}
-
-	private _toggleAnimation() {
-		this._isAnimating = !this._isAnimating;
-
-		if (this._isAnimating) {
-			this.scene?.registerBeforeRender(this._animationCallback);
-		} else {
-			this.scene?.unregisterBeforeRender(this._animationCallback);
-		}
-	}
-
-	private _animateSphere() {
-		if (this.sphere && this._isAnimating) {
-			this.sphere.rotation.y += 0.02;
 		}
 	}
 
