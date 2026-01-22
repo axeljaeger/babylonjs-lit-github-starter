@@ -1,4 +1,5 @@
 import './style.css';
+import './components.css';
 import './components/ui-panel';
 
 import { Engine } from '@babylonjs/core/Engines/engine';
@@ -10,6 +11,7 @@ import { CreateSphere } from '@babylonjs/core/Meshes/Builders/sphereBuilder';
 import { CreateGround } from '@babylonjs/core/Meshes/Builders/groundBuilder';
 import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial';
 import { Color3 } from '@babylonjs/core/Maths/math.color';
+import type { UiPanel } from './components/ui-panel';
 
 // Get the canvas element
 const canvas = document.getElementById('renderCanvas') as HTMLCanvasElement;
@@ -67,16 +69,10 @@ window.addEventListener('resize', () => {
 	engine.resize();
 });
 
-// Initialize Lit UI components
-const uiRoot = document.getElementById('ui-root');
-if (uiRoot) {
-	const uiPanel = document.createElement('ui-panel') as HTMLElement & {
-		scene: Scene;
-		sphere: typeof sphere;
-		camera: typeof camera;
-	};
+// Connect the UI panel to the scene
+const uiPanel = document.getElementById('control-panel') as unknown as UiPanel;
+if (uiPanel) {
 	uiPanel.scene = scene;
 	uiPanel.sphere = sphere;
 	uiPanel.camera = camera;
-	uiRoot.appendChild(uiPanel);
 }
