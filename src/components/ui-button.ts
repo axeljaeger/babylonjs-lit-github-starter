@@ -54,7 +54,7 @@ export class UiButton extends LitElement {
 				detail: { originalEvent: e },
 				bubbles: true,
 				composed: true,
-			})
+			}),
 		);
 	}
 }

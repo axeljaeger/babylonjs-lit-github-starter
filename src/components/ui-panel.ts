@@ -144,8 +144,10 @@ export class UiPanel extends LitElement {
 	}
 
 	private _changeSphereColor(r: number, g: number, b: number) {
-		if (this.sphere && this.sphere.material) {
-			const material = this.sphere.material as any;
+		if (this.sphere?.material) {
+			const material = this.sphere.material as unknown as {
+				diffuseColor?: Color3;
+			};
 			if (material.diffuseColor) {
 				material.diffuseColor = new Color3(r, g, b);
 			}

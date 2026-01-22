@@ -70,9 +70,13 @@ window.addEventListener('resize', () => {
 // Initialize Lit UI components
 const uiRoot = document.getElementById('ui-root');
 if (uiRoot) {
-	const uiPanel = document.createElement('ui-panel');
-	(uiPanel as any).scene = scene;
-	(uiPanel as any).sphere = sphere;
-	(uiPanel as any).camera = camera;
+	const uiPanel = document.createElement('ui-panel') as HTMLElement & {
+		scene: Scene;
+		sphere: typeof sphere;
+		camera: typeof camera;
+	};
+	uiPanel.scene = scene;
+	uiPanel.sphere = sphere;
+	uiPanel.camera = camera;
 	uiRoot.appendChild(uiPanel);
 }
