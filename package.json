@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "vite --host",
 		"build": "tsc && vite build",
+		"build:analyze": "tsc && vite build --mode analyze",
 		"preview": "vite preview",
 		"lint": "biome lint",
 		"format": "biome format"

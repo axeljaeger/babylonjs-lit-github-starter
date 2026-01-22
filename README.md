@@ -58,6 +58,7 @@ This starter demonstrates:
 
 - `npm run dev` - Start the development server with hot reload
 - `npm run build` - Build for production
+- `npm run build:analyze` - Build with detailed bundle size analysis
 - `npm run preview` - Preview the production build locally
 - `npm run lint` - Run Biome linter
 - `npm run format` - Format code with Biome
