@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig(({ mode }) => ({
-	base: '/',
+	base: '/babylonjs-lit-github-starter/',
 	server: {
 		host: true,
 		port: 3000,
