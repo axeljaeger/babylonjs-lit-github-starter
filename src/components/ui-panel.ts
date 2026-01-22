@@ -16,8 +16,8 @@ export class UiPanel extends LitElement {
 	@state() private _isAnimating = false;
 	@state() private _fps = 0;
 
-	private _animationId?: number;
 	private _fpsInterval?: number;
+	private _animationCallback = () => this._animateSphere();
 
 	static styles = css`
 		:host {
@@ -92,8 +92,8 @@ export class UiPanel extends LitElement {
 	disconnectedCallback() {
 		super.disconnectedCallback();
 		this._stopFpsCounter();
-		if (this._animationId !== undefined) {
-			this.scene?.unregisterBeforeRender(() => this._animateSphere());
+		if (this._isAnimating) {
+			this.scene?.unregisterBeforeRender(this._animationCallback);
 		}
 	}
 
@@ -165,9 +165,9 @@ export class UiPanel extends LitElement {
 		this._isAnimating = !this._isAnimating;
 
 		if (this._isAnimating) {
-			this.scene?.registerBeforeRender(() => this._animateSphere());
+			this.scene?.registerBeforeRender(this._animationCallback);
 		} else {
-			this.scene?.unregisterBeforeRender(() => this._animateSphere());
+			this.scene?.unregisterBeforeRender(this._animationCallback);
 		}
 	}
 
