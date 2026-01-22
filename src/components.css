@@ -71,12 +71,8 @@ ui-panel .fps {
 	color: #4ade80;
 }
 
-/* UI Button styles */
-ui-button {
-	display: inline-block;
-}
-
-ui-button button {
+/* Button styles */
+ui-panel button {
 	padding: 10px 20px;
 	font-size: 14px;
 	font-weight: 500;
@@ -90,16 +86,16 @@ ui-button button {
 	font-family: inherit;
 }
 
-ui-button button:hover:not(:disabled) {
+ui-panel button:hover:not(:disabled) {
 	transform: translateY(-2px);
 	box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
 }
 
-ui-button button:active:not(:disabled) {
+ui-panel button:active:not(:disabled) {
 	transform: translateY(0);
 }
 
-ui-button button:disabled {
+ui-panel button:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }

@@ -5,7 +5,6 @@ import type { Mesh } from '@babylonjs/core/Meshes/mesh';
 import type { FreeCamera } from '@babylonjs/core/Cameras/freeCamera';
 import { Vector3 } from '@babylonjs/core/Maths/math.vector';
 import { Color3 } from '@babylonjs/core/Maths/math.color';
-import './ui-button';
 
 @customElement('ui-panel')
 export class UiPanel extends LitElement {
@@ -50,18 +49,15 @@ export class UiPanel extends LitElement {
 					<fieldset>
 						<legend class="control-label">Sphere Color</legend>
 						<div class="button-group" role="group" aria-label="Color selection">
-							<ui-button
-								label="Red"
-								@button-click=${() => this._changeSphereColor(1, 0, 0)}
-							></ui-button>
-							<ui-button
-								label="Green"
-								@button-click=${() => this._changeSphereColor(0, 1, 0)}
-							></ui-button>
-							<ui-button
-								label="Blue"
-								@button-click=${() => this._changeSphereColor(0, 0, 1)}
-							></ui-button>
+							<button @click=${() => this._changeSphereColor(1, 0, 0)}>
+								Red
+							</button>
+							<button @click=${() => this._changeSphereColor(0, 1, 0)}>
+								Green
+							</button>
+							<button @click=${() => this._changeSphereColor(0, 0, 1)}>
+								Blue
+							</button>
 						</div>
 					</fieldset>
 				</section>
@@ -69,20 +65,16 @@ export class UiPanel extends LitElement {
 				<section class="control-group">
 					<fieldset>
 						<legend class="control-label">Camera</legend>
-						<ui-button
-							label="Reset Camera"
-							@button-click=${this._resetCamera}
-						></ui-button>
+						<button @click=${this._resetCamera}>Reset Camera</button>
 					</fieldset>
 				</section>
 
 				<section class="control-group">
 					<fieldset>
 						<legend class="control-label">Animation</legend>
-						<ui-button
-							label=${this._isAnimating ? 'Stop Animation' : 'Start Animation'}
-							@button-click=${this._toggleAnimation}
-						></ui-button>
+						<button @click=${this._toggleAnimation}>
+							${this._isAnimating ? 'Stop Animation' : 'Start Animation'}
+						</button>
 					</fieldset>
 				</section>
 			</aside>
