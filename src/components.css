@@ -99,3 +99,33 @@ ui-panel button:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
+
+/* GitHub link styles */
+ui-panel .github-link-section {
+	margin-top: 20px;
+	padding-top: 16px;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+ui-panel .github-link {
+	display: block;
+	padding: 10px 20px;
+	font-size: 14px;
+	font-weight: 500;
+	color: white;
+	text-decoration: none;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 6px;
+	text-align: center;
+	transition: all 0.3s ease;
+	box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+ui-panel .github-link:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
+}
+
+ui-panel .github-link:active {
+	transform: translateY(0);
+}

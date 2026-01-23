@@ -63,6 +63,17 @@ export class UiPanel extends LitElement {
 						<button @click=${this._resetCamera}>Reset Camera</button>
 					</fieldset>
 				</section>
+
+				<section class="github-link-section">
+					<a 
+						href="https://github.com/axeljaeger/babylonjs-lit-github-starter" 
+						target="_blank"
+						rel="noopener noreferrer"
+						class="github-link"
+						aria-label="View source code on GitHub">
+						🔗 GitHub Repository
+					</a>
+				</section>
 			</aside>
 		`;
 	}
