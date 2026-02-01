@@ -2,15 +2,15 @@ import './style.css';
 import './components.css';
 import './components/ui-panel';
 
-import { Engine } from '@babylonjs/core/Engines/engine';
-import { Scene } from '@babylonjs/core/scene';
 import { FreeCamera } from '@babylonjs/core/Cameras/freeCamera';
-import { Vector3 } from '@babylonjs/core/Maths/math.vector';
+import { Engine } from '@babylonjs/core/Engines/engine';
 import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
-import { CreateSphere } from '@babylonjs/core/Meshes/Builders/sphereBuilder';
-import { CreateGround } from '@babylonjs/core/Meshes/Builders/groundBuilder';
 import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial';
 import { Color3 } from '@babylonjs/core/Maths/math.color';
+import { Vector3 } from '@babylonjs/core/Maths/math.vector';
+import { CreateGround } from '@babylonjs/core/Meshes/Builders/groundBuilder';
+import { CreateSphere } from '@babylonjs/core/Meshes/Builders/sphereBuilder';
+import { Scene } from '@babylonjs/core/scene';
 import type { UiPanel } from './components/ui-panel';
 
 // Get the canvas element
