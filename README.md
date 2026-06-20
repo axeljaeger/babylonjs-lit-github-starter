@@ -30,7 +30,7 @@ This starter demonstrates:
 
 ### Prerequisites
 
-- Node.js (v18 or higher recommended)
+- Node.js 20.19+ or 22.12+ (Node.js 24 recommended, as required by Vite 8)
 - npm or yarn
 
 ### Installation

@@ -8,14 +8,23 @@ export default defineConfig(({ mode }) => ({
 		strictPort: true,
 	},
 	build: {
-		rollupOptions: {
+		chunkSizeWarningLimit: 1600,
+		rolldownOptions: {
 			output: {
-				manualChunks:
+				codeSplitting:
 					mode === 'analyze'
 						? undefined
 						: {
-								babylonjs: ['@babylonjs/core'],
-								lit: ['lit'],
+								groups: [
+									{
+										name: 'babylonjs',
+										test: /node_modules\/@babylonjs\/core/,
+									},
+									{
+										name: 'lit',
+										test: /node_modules\/(?:lit|lit-html|lit-element|@lit)\//,
+									},
+								],
 							},
 			},
 		},
